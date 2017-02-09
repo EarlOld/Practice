@@ -45,7 +45,7 @@ void Sort(int **A, int n, int m){
 	
 	int i,l,j,S1,S2,a;
 	
-	for(l=0;l<n;l++)
+	for(l=0;l<m;l++)
 	for(j=1;j<m;j++)
 	{
 		S1=Sum(A,n,j);
