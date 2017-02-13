@@ -3,6 +3,38 @@
 
 using namespace std;
 
+void erase( char * str)
+{
+	
+	for(int i = 0; i < strlen(str); i++)
+	{
+		if(str[i] == ' ' || str[i] == '!' || str[i] == '?' || str[i] == ',' || str[i] == '.' || str[i] == ':' || str[i] == ';') continue; 
+
+		for(int j = i; j < strlen(str); j++)
+		{
+			if(str[j] == ' ' || str[j] == '!' || str[j] == '?' || str[j] == ',' || str[j] == '.' || str[j] == ':' || str[j] == ';') continue; 
+			if(str[j + 1] == ' ' || str[j + 1] == '\0' || str[j + 1] == '!' || str[j + 1] == '?' || str[j + 1] == ',' || str[j + 1] == '.' || str[j + 1] == ':' || str[j + 1] == ';')
+			{
+				if(str[i] == str[j]) 
+				{
+					for(int l = i; l < strlen(str); l++)
+					{
+						str[l] = str[l + (j - i) + 1];
+					}
+				//cout << endl << "TEST string:" << str << endl;
+				i = j = 0;
+				break;
+				}
+				else
+					{ 
+						i = j + 1; 
+						break;
+					}
+				
+			}
+		}
+	}
+}
 
 bool is_it(char* str) 
 {
@@ -30,12 +62,16 @@ int main()
 	cout << "Input string: ";
 	cin.get(numbers, 1000, '\n');
 
-	string str = numbers;
-	strcpy(numbers1, numbers);
+	for( int i = 0; i < 999; i++)
+		numbers1[i] = numbers[i];
+
+
 	
 	cout << endl << "New string:" << numbers1 << endl;
 
-
+	erase(numbers1);
+	
+	cout << endl << "Erases string:" << numbers1 << endl;
     cout << "Numbers in string: " << NumOfDigits(numbers) << endl;
 	cout << "Word: ";
 	for(char *p = strtok(numbers, " "); p; p = strtok(0, " ")) 
@@ -47,8 +83,7 @@ int main()
         }
     }
 
-	
-	cout << endl << "New string:" << str << endl;
+	//cout << endl << "New string:" << str << endl;*/
 	
 	system("pause");
     return 0;
