@@ -60,14 +60,43 @@ void Output(const TIMETABLE* A, const int n)
 	}
 }
 
-void Sort(TIMETABLE *& A, const int n, string name)
+void Output_par(const TIMETABLE* TRAIN, const int N)
+{
+	string name;
+	int flag = 0;
+	cout << "Input name:";
+	cin >> 	name;
+	cout << endl;
+
+	
+	for(int i = 0; i < N; i++)
+	{
+		if(TRAIN[i].name == name) 
+		{
+			cout << setw(16) << "Name" << setw(10) << "Number" << setw(13) << "DATE" << setw(15) << "TIME" << endl;
+			cout << "------------------------------------------------------------------" << endl;
+	
+			cout << setw(16) << TRAIN[i].name << setw(8) << TRAIN[i].number << setw(10) << TRAIN[i].date.day << "/"<< TRAIN[i].date.month << "/"<< TRAIN[i].date.year << setw(10) << TRAIN[i].time.hour << ":"<< TRAIN[i].time.minute ;
+			cout << endl;
+		}
+	}
+
+	for(int i = 0; i < N; i++)
+	{
+		if(TRAIN[i].name == name) flag++;
+	}
+
+	if (!flag) cout << "Not trains!!" << endl;
+	
+}
+
+void Sort(TIMETABLE *& A, const int n)
 {
 	TIMETABLE temp;
 	
 	for (int i(0); i < n - 1; i++)
 	{
-		if(A[i].name == name)
-		{
+		
 			if(A[i].date.year > A[i+1].date.year) 
 				{
 					temp = A[i];
@@ -109,30 +138,20 @@ void Sort(TIMETABLE *& A, const int n, string name)
 									A[i] = A[i + 1];
 									A[i + 1] = temp;
 								}
-		}
-		else cout << endl << "Not trains!!!" << endl;
+		
 	}
 }
 
 int main()
 {
-
-	string name;
-	cout << "Input name:";
-	cin >> 	name;
-	cout << endl;
-
-	cin.ignore();
-	cin.clear();
-
 	const int N = 2;
 	TIMETABLE* TRAIN = new TIMETABLE[N];
-	Input(TRAIN, N);
-	Sort(TRAIN, N, name);
 
-	cout << endl << endl;
+	Input(TRAIN, N);
+	Sort(TRAIN, N);
 
 	Output(TRAIN, N);
+	Output_par(TRAIN, N);
 
 	system("pause");
 	return 0;
