@@ -58,8 +58,16 @@ void Sort(int **A, int *B, int n){
 
 	for(int i = 0;i < n; i++)
 		for(int j = 0; j < n - 1; j++)
-			if(A[j][i] == A[j + 1][i])
+
+
+			for(int l = 0; j + l < n - 1; l++)
+		{
+			if(A[j][i] == A[j + l][i] && B[i] != 2)
 					B[i]++;	
+			if(A[j][i] == A[j + l + 1][i])
+					B[i]++;	
+
+		}
 }
 
 int main() {
