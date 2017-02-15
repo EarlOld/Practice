@@ -29,12 +29,15 @@ void Output(int **A, int n){
 int Sum(int **A, int n){
 	
 	int i,S=0;
-	
+	cout << endl << "Nuber string:";
 	for(i = 0; i < n; i++)
 		for(int j = 0; j < n; j++)
 
 			if(A[i][j] == 0)
-				S++;
+			{
+				cout << "\t" << i + 1 << "\t";
+				break;
+			}
 	return S;
 }
 int Max(int *A, int n){
@@ -42,19 +45,20 @@ int Max(int *A, int n){
 	for(int i = 0;i < n; i++)
 		if(A[i] > max)
 		{
-			max = A[i];
+			max =  A[i];
 			count = i;	
 		}
-	return count;
+	return count + 1;
 }
 
 void Sort(int **A, int *B, int n){
-	
+
 	for(int i = 0;i < n; i++)
-		for(int j = 0; j < n; j++)
-			for(int l = 0; l < n; l++)
-	
-				if(A[j][i] == A[l][i])
+		B[i] = 1;
+
+	for(int i = 0;i < n; i++)
+		for(int j = 0; j < n - 1; j++)
+			if(A[j][i] == A[j + 1][i])
 					B[i]++;	
 }
 
@@ -76,8 +80,8 @@ int main() {
 	Output(A,n);
 
 	Sort(A, B, n);
-
-	cout << endl << "Count '0':" << Sum(A, n) << endl << "Number:" << Max(B,n) << endl;
+	 Sum(A, n);
+	cout << endl << "Number:" << Max(B,n) << endl;
 	
 	for(i=0; i<n; i++)
 		free(A[i]);

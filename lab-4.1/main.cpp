@@ -145,7 +145,7 @@ void Sort(TIMETABLE *& A, const int n)
 int main()
 {
 	system("color f0");
-	const int N = 2;
+	const int N = 3;
 	TIMETABLE* TRAIN = new TIMETABLE[N];
 
 	Input(TRAIN, N);
