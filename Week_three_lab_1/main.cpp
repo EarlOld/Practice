@@ -23,9 +23,9 @@ int main(int argc, char** argv)
 	cout << "Rezult (b > a): " << ((b > a) ? b : a) << endl;	//10
 	cout << "Rezult (b += a): " << (b += a) << endl;			//14
 	cout << "Rezult (b -= a): " << (b -= a) << endl;			//4
-	cout << "Rezult (b &= a): " << (b &= a) << endl;			//0 (0100 & 1010 = 0)
-	cout << "Rezult (b |= a): " << (b |= a) << endl;			//10 (0 | 1010 = 1010)
-	cout << "Rezult (b ^= a): " << (b ^= a) << endl;			//0 (1010 ^ 1010 = 0)
+	cout << "Rezult (b &= a): " << (b &= a) << endl;			//0 (0100 & 1010 = 0) побітове множення
+	cout << "Rezult (b |= a): " << (b |= a) << endl;			//10 (0 | 1010 = 1010) побітове додавання
+	cout << "Rezult (b ^= a): " << (b ^= a) << endl;			//0 (1010 ^ 1010 = 0) взаємне виключення
 	cout << "Rezult (sizeof(b)): " << sizeof(b) << endl;		//4 byte
 
 	int y = 0, sum = 0;

@@ -4,6 +4,10 @@
 #define  ROVNO =
 #define PLUS +
 #define MINUS -
+#define DEFINED 1
+#define DILENNJA /
+#define OSTACHA %
+#define ZSUV_RIGHT >>
 
 using namespace std;
 
@@ -85,29 +89,41 @@ int Sum(int a, int b)
 
 void myDefine()
 {
-	int c ROVNO 5 MINUS 6 PLUS 1;
+	int c ROVNO (5.5 MINUS 6.1 PLUS 1.8) DILENNJA 5 + 5 OSTACHA 2;
 	
 	cout << "C:" << c << endl;
+
+	
 }
-int main(int argc, char** argv)
-{
-	system("color f0");
-	int a = 10;
-	int b = 4;
+#if DEFINED
+	int main(int argc, char** argv)
+	{
 
+		system("color f0");
+	
+		int b = 4;
+		
+		//max();
+	
+		cout << "8 ----"<< (8 ZSUV_RIGHT 1) << endl;
+		cout << "12 ----"<< (12 ZSUV_RIGHT 2) << endl;
+		int a = 0;
+		cin >> a;
+		cout << "Factorial:" << factorial(a) << endl;
 
-#if ( b > 0)
+	
+		system("pause");
+		return NULL;
+	}
+#else
+	int main(int argc, char** argv)
+	{
 
-	[myDefine();]
-[#else
-	cin >> a;
-	cout << "Factorial:" << factorial(a) << endl;]
+		system("color f0");
+		int a = 10;
+		int b = 4;
+	 	myDefine();
+		system("pause");
+		return NULL;
+	}
 #endif 
-	//cin >> a;
-	//cout << "Factorial:" << factorial(a) << endl;
-	//myDefine();
-	//max();
-
-	system("pause");
-	return NULL;
-}
