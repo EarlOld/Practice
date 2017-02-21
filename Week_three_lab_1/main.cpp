@@ -5,6 +5,7 @@ using namespace std;
 
 int main(int argc, char** argv)
 {
+	system("color f0");
 	const int a = 10;
 	int b = 4;
 	const float Pi = 3.13159;

@@ -74,6 +74,31 @@ int Dobutok(int a, int b)
 	return sum;
 }
 
+
+int MyFunction(int var, ...)
+{
+	int rez = var;
+	va_list ptr;
+	__crt_va_start(ptr, var);
+	for (; var != '"'; var = __crt_va_arg(ptr, char))
+	{
+		if (var == '+')
+			rez += __crt_va_arg(ptr, int);
+		else if (var == '-')
+			rez -= __crt_va_arg(ptr, int);
+		else if (var == '*')
+			rez *= __crt_va_arg(ptr, int);
+		else if (var == '/')
+			rez /= __crt_va_arg(ptr, int);
+		else if (var == '>>')
+			rez &= __crt_va_arg(ptr, int);
+		else if (var == '%')
+			rez %= __crt_va_arg(ptr, int);
+	}
+	__crt_va_end(ptr);
+	return rez;
+}
+
 int Sum(int a, int b)
 {
 	int y = 0, sum = 0;
@@ -102,14 +127,15 @@ void myDefine()
 		system("color f0");
 	
 		int b = 4;
-		
+		cout << endl << "Rezult: " << MyFunction(2, '+', 4,  '"') << endl;
+
 		//max();
 	
-		cout << "8 ----"<< (8 ZSUV_RIGHT 1) << endl;
+	/*	cout << "8 ----"<< (8 ZSUV_RIGHT 1) << endl;
 		cout << "12 ----"<< (12 ZSUV_RIGHT 2) << endl;
 		int a = 0;
 		cin >> a;
-		cout << "Factorial:" << factorial(a) << endl;
+		cout << "Factorial:" << factorial(a) << endl;*/
 
 	
 		system("pause");
