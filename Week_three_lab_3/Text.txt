@@ -1,0 +1,13 @@
+q
+1
+1
+2
+qqqq
+
+----------------------------------
+
+Char: q
+Int: 1
+Short: 1
+Float: 2.000
+String: qqqq
