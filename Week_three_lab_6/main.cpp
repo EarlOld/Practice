@@ -10,10 +10,10 @@ union MyUnion
 {
 	char Ch;
 	int Int;
-	unsigned int UInt;
+	
 	short Short;
 	float Float;
-	long Long;
+	
 	string* String;
 };
 
@@ -94,6 +94,7 @@ Student*& StRead(const int N)
 
 int main()
 {
+	system("color f0");
 	days_of_week day1, day2;
 	day1 = Tue;
 	day2 = Thu;
@@ -127,26 +128,26 @@ int main()
 		}
 		else if (i == 2 || ((i - 2) % 3) == 0)
 		{
-			uniform_int_distribution<unsigned int> rd(0, 4294967295);
-			myTypes[i].UInt = rd(random);
-			cout << "Unsigned int: " << myTypes[i].UInt << endl;
-			ullInt += myTypes[i].UInt;
+			uniform_int_distribution<short> rd(0, 255);
+			myTypes[i].Short = rd(random);
+			cout << "Short: " << myTypes[i].Short << endl;
+			ullInt += myTypes[i].Short;
 		}
 		if (i != 0 && (i + 1) % 3 == 0)
 			cout << endl;
 	}
 
 	cout << "Sum Int: " << llInt << endl
-		<< "Sum Unsigned int: " << ullInt << endl << endl;
+		<< "Sum Short: " << ullInt << endl << endl;
 
-	myTypes->Short = random();
+	/*myTypes->Short = random();
 	cout << "Short: " << myTypes->Short << endl;
+*/
 	myTypes->Float = random();
 	cout << "Float: " << myTypes->Float << endl;
-	myTypes->Long = random();
-	cout << "Long: " << myTypes->Long << endl;
+	
 	myTypes->String = new string;
-	*myTypes->String = "My name is Andriy.";
+	*myTypes->String = "My name is Dmytro.";
 	cout << "String: " << *myTypes->String << endl;
 	delete myTypes->String;
 
