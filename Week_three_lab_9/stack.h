@@ -1,12 +1,14 @@
 #include <string>
 #include <iostream>
 using namespace std;
+
 template<class T>
 class Stack
 {
 public:
-	Stack() :tail(0), head(0)
+	Stack() :tail(0), head(0), size(0)
 	{
+
 	}
 
 	~Stack()
@@ -40,28 +42,42 @@ public:
 	{
 		if (tail == 0)
 		{
-			throw string("Stack is empty!");
+			cout << endl <<"Stack is empty!"<< endl;
+			return 0;
 		}
 		return tail->elem;
 	}
 
-	void pop()
+	void clear()
 	{
-		while (tail != 0)
+		while (tail != NULL)
 		{
 			Node* delptr = tail;
 			tail = tail->next;
 			delete delptr;
 		}
 		
-		throw string("Stack is empty!");
+		cout << endl <<"Stack is empty!"<< endl;
 	}
+	T pop()
+	{
+		
+		if (tail == 0)
+		{  cout << endl <<"Stack is empty!"<< endl;
+		return 0; }
+		Node* delptr = tail;
+		cout << endl << tail->elem << endl;
+		tail = tail->next;
 
+		delete delptr;
+		
+		//return tail->elem;
+	}
 	void print()
 	{
 		if (tail == 0)
 		{
-			throw string("Stack is empty!");
+			cout << endl <<"Stack is empty!"<< endl;
 		}
 		for (Node* ptr = tail; ptr != 0; ptr = ptr->next)
 		{
@@ -74,10 +90,12 @@ public:
 		if (q > size)
 		{
 			cout << endl << "Error!" << endl;
+			return;
 		}
 		if (tail == 0)
 		{
-			throw string("Stack is empty!");
+			cout << endl <<"Stack is empty!"<< endl;
+			return;
 		}
 		int flag = 0;
 		for (Node* ptr = tail; ptr != 0; ptr = ptr->next)
@@ -96,6 +114,7 @@ public:
 			<< "4 - Getting a pointer to the i-th element of the stack;" << endl
 			<< "5 - Get stack item ;" << endl
 			<< "6 - Print the list;" << endl
+			<< "7 - Pop the list;" << endl
 			<< "0 - Exit." << endl;
 	}
 
@@ -126,7 +145,7 @@ void Stack<T>::SwichMenu()
 			;
 			
 		case 1:
-			pop();
+			clear();
 			break;
 		case 2:
 			T a;
@@ -154,7 +173,11 @@ void Stack<T>::SwichMenu()
 			print();
 			break;
 		}
-		
+		case 7:
+		{
+			pop();
+			break;
+		}
 		case 0: return;
 		default:
 			cerr << "\t Incorrect input" << endl;
