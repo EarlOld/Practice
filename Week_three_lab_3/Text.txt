@@ -1,13 +1,13 @@
-q
-1
 1
 2
-qqqq
+3
+4
+5
 
 ----------------------------------
 
-Char: q
-Int: 1
-Short: 1
-Float: 2.000
-String: qqqq
+Char: 1
+Int: 2
+Short: 3
+Float: 4.000
+String: 5
